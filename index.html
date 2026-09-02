@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arohi ❤️ Subho</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  padding: 35px 25px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.16);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  margin: 15px 0;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+
+button {
+  border: none;
+  padding: 14px 25px;
+  border-radius: 30px;
+  background: white;
+  color: #ff4f81;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#error {
+  color: #ffe1e8;
+  margin-top: 12px;
+  display: none;
+}
+
+#website {
+  display: none;
+  padding: 30px 18px;
+}
+
+.hero {
+  max-width: 700px;
+  margin: auto;
+}
+
+.heart {
+  font-size: 65px;
+  animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.section {
+  max-width: 650px;
+  margin: 35px auto;
+  padding: 25px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.15);
+}
+
+.photo-box {
+  height: 230px;
+  border: 2px dashed rgba(255,255,255,0.7);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.footer {
+  margin-top: 50px;
+  padding-bottom: 30px;
+  font-size: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div class="screen" id="login">
+  <div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>Arohi ❤️ Subho</h1>
+
+    <p>
+      This little place is made with love,<br>
+      just for two beautiful hearts. ✨
+    </p>
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter Secret Key"
+    >
+
+    <button onclick="unlock()">
+      Open Our Memories 💌
+    </button>
+
+    <p id="error">
+      Wrong secret key ❤️ Try again.
+    </p>
+
+  </div>
+</div>
+
+
+<!-- MAIN WEBSITE -->
+<div id="website">
+
+  <div class="hero">
+
+    <div class="heart">❤️</div>
+
+    <h1>Welcome Arohi & Subho</h1>
+
+    <h2>Happy Anniversary 🥹❤️</h2>
+
+    <p>
+      Two hearts, one beautiful journey,
+      and countless memories waiting to be remembered.
+    </p>
+
+  </div>
+
+
+  <div class="section">
+
+    <h2>Our Story 💕</h2>
+
+    <p>
+      Some people meet by chance,
+      but some meetings become a beautiful part of life.
+      This is a little place to keep those special moments,
+      smiles, memories and love safe forever.
+    </p>
+
+  </div>
+
+
+  <div class="section">
+
+    <h2>Our Memories 📸</h2>
+
+    <p>
+      The beautiful photos will be added here soon. ❤️
+    </p>
+
+    <div class="photo-box">
+      📷 Your special memories will appear here
+    </div>
+
+  </div>
+
+
+  <div class="section">
+
+    <h2>A Little Message 💌</h2>
+
+    <p>
+      One year, countless memories,
+      endless smiles and a love worth celebrating.
+
+      <br><br>
+
+      May your journey together always be filled
+      with happiness, understanding, laughter
+      and lots of beautiful moments.
+
+      <br><br>
+
+      Keep choosing each other,
+      today, tomorrow and always. ❤️
+
+    </p>
+
+  </div>
+
+
+  <div class="section">
+
+    <h2>Forever & Always ♾️❤️</h2>
+
+    <p>
+      This is only the beginning
+      of many more beautiful memories.
+    </p>
+
+  </div>
+
+
+  <div class="footer">
+    Made with ❤️ for Arohi & Subho
+  </div>
+
+</div>
+
+
+<script>
+
+function unlock() {
+
+  const password = document.getElementById("password").value;
+  const error = document.getElementById("error");
+
+  if (password === "ArohiSubho@2026") {
+
+    document.getElementById("login").style.display = "none";
+    document.getElementById("website").style.display = "block";
+
+  } else {
+
+    error.style.display = "block";
+
+  }
+
+}
+
+document.getElementById("password").addEventListener("keypress", function(event) {
+
+  if (event.key === "Enter") {
+    unlock();
+  }
+
+});
+
+</script>
+
+</body>
+</html>
