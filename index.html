@@ -3,169 +3,494 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arohi ❤️ Subho</title>
+<title>Arohi ❤️ Subho — Our Little Forever</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  color: white;
-  min-height: 100vh;
-  text-align: center;
+html{
+  scroll-behavior:smooth;
 }
 
-.screen {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 25px;
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at top,#ffb6d5 0%,transparent 35%),
+    linear-gradient(135deg,#ff5f9e,#ff86b5,#ff5f91);
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-.card {
-  width: 100%;
-  max-width: 430px;
-  padding: 35px 25px;
-  border-radius: 25px;
-  background: rgba(255,255,255,0.16);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+/* FLOATING HEARTS */
+.hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
 }
 
-h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
+.heart{
+  position:absolute;
+  bottom:-50px;
+  font-size:22px;
+  animation:floatUp linear infinite;
+  opacity:.7;
 }
 
-h2 {
-  font-size: 28px;
-}
+.heart:nth-child(1){left:8%;animation-duration:8s;animation-delay:1s}
+.heart:nth-child(2){left:20%;animation-duration:11s;animation-delay:3s}
+.heart:nth-child(3){left:35%;animation-duration:9s;animation-delay:0s}
+.heart:nth-child(4){left:50%;animation-duration:12s;animation-delay:2s}
+.heart:nth-child(5){left:65%;animation-duration:10s;animation-delay:4s}
+.heart:nth-child(6){left:78%;animation-duration:8s;animation-delay:1s}
+.heart:nth-child(7){left:90%;animation-duration:13s;animation-delay:5s}
 
-p {
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-input {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 12px;
-  margin: 15px 0;
-  font-size: 16px;
-  text-align: center;
-  outline: none;
-}
-
-button {
-  border: none;
-  padding: 14px 25px;
-  border-radius: 30px;
-  background: white;
-  color: #ff4f81;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#error {
-  color: #ffe1e8;
-  margin-top: 12px;
-  display: none;
-}
-
-#website {
-  display: none;
-  padding: 30px 18px;
-}
-
-.hero {
-  max-width: 700px;
-  margin: auto;
-}
-
-.heart {
-  font-size: 65px;
-  animation: beat 1.2s infinite;
-}
-
-@keyframes beat {
-  50% {
-    transform: scale(1.15);
+@keyframes floatUp{
+  0%{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+  15%{opacity:.8}
+  100%{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
   }
 }
 
-.section {
-  max-width: 650px;
-  margin: 35px auto;
-  padding: 25px;
-  border-radius: 25px;
-  background: rgba(255,255,255,0.15);
+/* PASSWORD SCREEN */
+#lockScreen{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  background:
+    radial-gradient(circle at top,#ffb1d0,#ff4f91 75%);
 }
 
-.photo-box {
-  height: 230px;
-  border: 2px dashed rgba(255,255,255,0.7);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  font-size: 18px;
+.lockBox{
+  width:100%;
+  max-width:430px;
+  padding:40px 28px;
+  text-align:center;
+  border-radius:30px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
+  backdrop-filter:blur(15px);
 }
 
-.footer {
-  margin-top: 50px;
-  padding-bottom: 30px;
-  font-size: 15px;
+.bigHeart{
+  font-size:75px;
+  animation:beat 1.4s infinite;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+}
+
+.lockBox h1{
+  font-size:31px;
+  margin:15px 0 8px;
+}
+
+.lockBox p{
+  opacity:.9;
+  line-height:1.6;
+  margin-bottom:25px;
+}
+
+.password{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:15px;
+  outline:none;
+  text-align:center;
+  font-size:16px;
+  margin-bottom:12px;
+}
+
+.enterBtn{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:15px;
+  background:white;
+  color:#ff4f91;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#error{
+  display:none;
+  margin-top:12px;
+  color:#fff0f5;
+}
+
+/* MAIN */
+#website{
+  display:none;
+  position:relative;
+  z-index:2;
+}
+
+section{
+  width:calc(100% - 30px);
+  max-width:900px;
+  margin:25px auto;
+  padding:55px 25px;
+  border-radius:32px;
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:0 20px 55px rgba(130,20,70,.16);
+  backdrop-filter:blur(12px);
+  text-align:center;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
+
+.heroHeart{
+  font-size:105px;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.15));
+  animation:beat 1.5s infinite;
+}
+
+.hero h1{
+  font-size:clamp(38px,10vw,75px);
+  margin:20px 0 10px;
+  text-shadow:0 8px 25px rgba(100,0,40,.2);
+}
+
+.hero h2{
+  font-size:clamp(25px,6vw,45px);
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:650px;
+  font-size:19px;
+  line-height:1.8;
+  opacity:.95;
+}
+
+.scroll{
+  margin-top:45px;
+  font-size:14px;
+  opacity:.8;
+  animation:bounce 1.8s infinite;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(10px)}
+}
+
+/* HEADINGS */
+h2{
+  font-size:34px;
+  margin-bottom:25px;
+}
+
+h3{
+  font-size:27px;
+  margin-bottom:15px;
+}
+
+.sectionText{
+  max-width:700px;
+  margin:auto;
+  font-size:18px;
+  line-height:1.9;
+}
+
+/* COUNTDOWN */
+.countdown{
+  margin:25px auto 0;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.timeBox{
+  min-width:75px;
+  padding:15px 10px;
+  border-radius:18px;
+  background:rgba(255,255,255,.18);
+}
+
+.timeBox strong{
+  display:block;
+  font-size:25px;
+}
+
+.timeBox span{
+  font-size:12px;
+  opacity:.8;
+}
+
+/* STORY */
+.storyLine{
+  width:80px;
+  height:4px;
+  border-radius:5px;
+  background:white;
+  margin:20px auto 30px;
+  opacity:.7;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:30px;
+}
+
+.photo{
+  min-height:210px;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  background:rgba(255,255,255,.13);
+  border:2px dashed rgba(255,255,255,.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  min-height:210px;
+  object-fit:cover;
+  display:block;
+}
+
+.placeholder{
+  padding:25px;
+  text-align:center;
+  opacity:.8;
+}
+
+.placeholder div{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+/* MESSAGE */
+.message{
+  text-align:left;
+  max-width:700px;
+  margin:auto;
+}
+
+.message p{
+  font-size:18px;
+  line-height:2;
+  margin-bottom:24px;
+}
+
+/* SPECIAL CARD */
+.special{
+  background:rgba(255,255,255,.19);
+  padding:40px 20px;
+  border-radius:28px;
+}
+
+.infinity{
+  font-size:65px;
+  margin:15px 0;
+}
+
+/* MUSIC */
+.musicBtn{
+  margin-top:25px;
+  padding:14px 25px;
+  border:0;
+  border-radius:30px;
+  background:white;
+  color:#ff4f91;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.musicNote{
+  margin-top:12px;
+  font-size:13px;
+  opacity:.75;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:50px 20px 70px;
+  font-size:15px;
+  opacity:.9;
+}
+
+/* EXPIRED */
+#expired{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:linear-gradient(135deg,#ff5f9e,#ff91bb);
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+}
+
+.expiredBox{
+  max-width:500px;
+}
+
+.expiredBox .big{
+  font-size:80px;
+}
+
+.expiredBox h1{
+  font-size:35px;
+  margin:20px 0;
+}
+
+.expiredBox p{
+  line-height:1.8;
+  font-size:18px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  section{
+    padding:42px 20px;
+    border-radius:27px;
+  }
+
+  .hero{
+    padding:25px 18px;
+  }
+
+  .heroHeart{
+    font-size:80px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  h2{
+    font-size:29px;
+  }
+
+  .sectionText{
+    font-size:16px;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .photo{
+    min-height:250px;
+  }
+
+  .photo img{
+    min-height:250px;
+  }
+
+  .message p{
+    font-size:16px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- PASSWORD SCREEN -->
-<div class="screen" id="login">
-  <div class="card">
+<!-- FLOATING HEARTS -->
+<div class="hearts">
+  <div class="heart">❤️</div>
+  <div class="heart">💕</div>
+  <div class="heart">💗</div>
+  <div class="heart">❤️</div>
+  <div class="heart">💖</div>
+  <div class="heart">💕</div>
+  <div class="heart">❤️</div>
+</div>
 
-    <div class="heart">❤️</div>
+<!-- PASSWORD -->
+<div id="lockScreen">
+  <div class="lockBox">
+    <div class="bigHeart">❤️</div>
 
-    <h1>Arohi ❤️ Subho</h1>
+    <h1>A Little Secret 💌</h1>
 
     <p>
-      This little place is made with love,<br>
-      just for two beautiful hearts. ✨
+      Some memories are too special<br>
+      to be opened by just anyone.<br><br>
+      Enter the secret key to continue...
     </p>
 
     <input
-      type="password"
       id="password"
-      placeholder="Enter Secret Key"
+      class="password"
+      type="password"
+      placeholder="Enter secret key"
     >
 
-    <button onclick="unlock()">
-      Open Our Memories 💌
+    <button class="enterBtn" onclick="unlock()">
+      Open Our Memory ❤️
     </button>
 
-    <p id="error">
-      Wrong secret key ❤️ Try again.
-    </p>
-
+    <div id="error">
+      Wrong key 😭 Try again ❤️
+    </div>
   </div>
 </div>
 
+<!-- EXPIRED -->
+<div id="expired">
+  <div class="expiredBox">
+    <div class="big">💗</div>
+    <h1>This little memory has expired</h1>
+    <p>
+      The seven days have come to an end.<br><br>
+      But the memories, smiles and beautiful moments
+      will always remain special. ❤️
+    </p>
+  </div>
+</div>
 
-<!-- MAIN WEBSITE -->
+<!-- WEBSITE -->
 <div id="website">
 
-  <div class="hero">
+  <!-- HERO -->
+  <section class="hero">
 
-    <div class="heart">❤️</div>
+    <div class="heroHeart">❤️</div>
 
     <h1>Welcome Arohi & Subho</h1>
 
@@ -173,111 +498,389 @@ button {
 
     <p>
       Two hearts, one beautiful journey,
-      and countless memories waiting to be remembered.
+      countless memories and a love worth celebrating.
     </p>
 
-  </div>
+    <div class="scroll">
+      ↓ Scroll down, your little surprise is waiting ↓
+    </div>
 
+  </section>
 
-  <div class="section">
+  <!-- COUNTDOWN -->
+  <section>
+
+    <h2>⏳ A Little Time Together</h2>
+
+    <p class="sectionText">
+      This little corner of the internet will stay here
+      for a few beautiful days — just like a tiny digital
+      memory made especially for Arohi & Subho. ❤️
+    </p>
+
+    <div class="countdown">
+
+      <div class="timeBox">
+        <strong id="days">00</strong>
+        <span>DAYS</span>
+      </div>
+
+      <div class="timeBox">
+        <strong id="hours">00</strong>
+        <span>HOURS</span>
+      </div>
+
+      <div class="timeBox">
+        <strong id="minutes">00</strong>
+        <span>MINUTES</span>
+      </div>
+
+      <div class="timeBox">
+        <strong id="seconds">00</strong>
+        <span>SECONDS</span>
+      </div>
+
+    </div>
+
+    <p style="margin-top:18px;font-size:14px;opacity:.8;">
+      This page will be here for
+      <strong id="shortCountdown">7 days</strong> ❤️
+    </p>
+
+  </section>
+
+  <!-- STORY -->
+  <section>
 
     <h2>Our Story 💕</h2>
 
-    <p>
+    <div class="storyLine"></div>
+
+    <p class="sectionText">
       Some people meet by chance,
-      but some meetings become a beautiful part of life.
-      This is a little place to keep those special moments,
-      smiles, memories and love safe forever.
+      but some meetings slowly become one of
+      the most beautiful parts of life.
+      <br><br>
+
+      From little conversations to countless smiles,
+      from silly moments to memories worth keeping —
+      every moment together becomes a part of your story.
+      <br><br>
+
+      This little website is just a tiny place
+      to keep those moments alive. ❤️
     </p>
 
-  </div>
+  </section>
 
-
-  <div class="section">
+  <!-- MEMORIES -->
+  <section>
 
     <h2>Our Memories 📸</h2>
 
-    <p>
-      The beautiful photos will be added here soon. ❤️
+    <p class="sectionText">
+      Eight little spaces for eight beautiful memories.
+      The real photos will be added here soon. ❤️
     </p>
 
-    <div class="photo-box">
-      📷 Your special memories will appear here
+    <div class="gallery">
+
+      <div class="photo">
+        <div class="placeholder">
+          <div>📸</div>
+          Memory 01
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          <div>📸</div>
+          Memory 02
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          <div>📸</div>
+          Memory 03
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          <div>📸</div>
+          Memory 04
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          <div>📸</div>
+          Memory 05
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          <div>📸</div>
+          Memory 06
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          <div>📸</div>
+          Memory 07
+        </div>
+      </div>
+
+      <div class="photo">
+        <div class="placeholder">
+          <div>📸</div>
+          Memory 08
+        </div>
+      </div>
+
     </div>
 
-  </div>
+  </section>
 
-
-  <div class="section">
+  <!-- MESSAGE -->
+  <section>
 
     <h2>A Little Message 💌</h2>
 
-    <p>
-      One year, countless memories,
-      endless smiles and a love worth celebrating.
+    <div class="message">
 
-      <br><br>
+      <p>
+        One year, countless memories, endless smiles
+        and so many moments worth remembering.
+        Today is not just a celebration of a date —
+        it is a celebration of everything you have
+        shared together. ❤️
+      </p>
 
-      May your journey together always be filled
-      with happiness, understanding, laughter
-      and lots of beautiful moments.
+      <p>
+        May your journey together always be filled
+        with happiness, understanding, laughter,
+        little surprises and beautiful moments
+        that become unforgettable memories.
+      </p>
 
-      <br><br>
+      <p>
+        Keep supporting each other, keep making
+        each other smile, and keep choosing each other
+        through every ordinary and extraordinary day.
+      </p>
 
-      Keep choosing each other,
-      today, tomorrow and always. ❤️
+      <p>
+        Here's to the memories already made,
+        the memories waiting to happen,
+        and all the beautiful chapters still left
+        to write together. 🥹❤️
+      </p>
 
+    </div>
+
+  </section>
+
+  <!-- MUSIC -->
+  <section>
+
+    <h2>🎵 A Song For This Memory</h2>
+
+    <p class="sectionText">
+      Every special memory deserves a little music. ❤️
     </p>
 
-  </div>
+    <audio id="music" loop>
+      <source src="song.mp3" type="audio/mpeg">
+    </audio>
 
+    <button class="musicBtn" onclick="toggleMusic()">
+      🎵 Play Music
+    </button>
 
-  <div class="section">
-
-    <h2>Forever & Always ♾️❤️</h2>
-
-    <p>
-      This is only the beginning
-      of many more beautiful memories.
+    <p class="musicNote">
+      If music doesn't start automatically,
+      tap the button above.
     </p>
 
-  </div>
+  </section>
 
+  <!-- FOREVER -->
+  <section>
 
-  <div class="footer">
+    <div class="special">
+
+      <h2>Forever & Always ♾️</h2>
+
+      <div class="infinity">♾️</div>
+
+      <p class="sectionText">
+        This is only the beginning of many more
+        beautiful memories.
+        <br><br>
+        May there always be a reason to smile,
+        a reason to stay,
+        and a reason to say —
+        <strong>"I'm glad I found you." ❤️</strong>
+      </p>
+
+    </div>
+
+  </section>
+
+  <footer>
     Made with ❤️ for Arohi & Subho
-  </div>
+    <br><br>
+    A tiny website, a big memory. ✨
+  </footer>
 
 </div>
 
-
 <script>
 
-function unlock() {
+/* =========================
+   PASSWORD
+========================= */
 
-  const password = document.getElementById("password").value;
-  const error = document.getElementById("error");
+const SECRET_KEY = "ArohiSubho@2026";
 
-  if (password === "ArohiSubho@2026") {
+function unlock(){
 
-    document.getElementById("login").style.display = "none";
-    document.getElementById("website").style.display = "block";
+  const entered =
+    document.getElementById("password").value;
 
-  } else {
+  if(entered === SECRET_KEY){
 
-    error.style.display = "block";
+    document.getElementById("lockScreen").style.display="none";
+    document.getElementById("website").style.display="block";
+
+    startMusic();
+
+  }else{
+
+    document.getElementById("error").style.display="block";
 
   }
-
 }
 
-document.getElementById("password").addEventListener("keypress", function(event) {
+document.getElementById("password")
+.addEventListener("keydown",function(e){
 
-  if (event.key === "Enter") {
+  if(e.key === "Enter"){
     unlock();
   }
 
 });
+
+
+/* =========================
+   7 DAY EXPIRY
+   Starting from 3 September 2026
+========================= */
+
+const expiryDate =
+  new Date("2026-09-10T23:59:59+05:30").getTime();
+
+
+function updateCountdown(){
+
+  const now = new Date().getTime();
+
+  const difference = expiryDate - now;
+
+  if(difference <= 0){
+
+    document.getElementById("website").style.display="none";
+    document.getElementById("lockScreen").style.display="none";
+    document.getElementById("expired").style.display="flex";
+
+    return;
+  }
+
+  const days =
+    Math.floor(difference/(1000*60*60*24));
+
+  const hours =
+    Math.floor(
+      (difference%(1000*60*60*24))
+      /(1000*60*60)
+    );
+
+  const minutes =
+    Math.floor(
+      (difference%(1000*60*60))
+      /(1000*60)
+    );
+
+  const seconds =
+    Math.floor(
+      (difference%(1000*60))
+      /1000
+    );
+
+  document.getElementById("days").textContent =
+    String(days).padStart(2,"0");
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2,"0");
+
+  document.getElementById("shortCountdown").textContent =
+    `${days}d ${hours}h ${minutes}m`;
+
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const music =
+  document.getElementById("music");
+
+
+function startMusic(){
+
+  music.play().catch(function(){
+
+    /* Mobile browsers may block autoplay.
+       User can press Play Music. */
+
+  });
+
+}
+
+
+function toggleMusic(){
+
+  if(music.paused){
+
+    music.play();
+
+    document.querySelector(".musicBtn")
+      .textContent="⏸️ Pause Music";
+
+  }else{
+
+    music.pause();
+
+    document.querySelector(".musicBtn")
+      .textContent="🎵 Play Music";
+
+  }
+
+}
 
 </script>
 
